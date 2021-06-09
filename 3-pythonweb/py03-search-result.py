@@ -29,7 +29,6 @@ for pedaco in resp.iter_content(100000):
 html_file.close()
 
 soup = bs4.BeautifulSoup(resp.text, "html.parser")
-
 packages = soup.select(".package-snippet")
 
 for i in range(5):

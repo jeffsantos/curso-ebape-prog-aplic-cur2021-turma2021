@@ -9,6 +9,7 @@ python = "^3.8"
 webbot = "^0.34"
 bs4 = "^0.0.1"
 beautifulsoup4 = "^4.9.3"
+Flask = "^2.0.1"
 
 [tool.poetry.dev-dependencies]
 
