@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Lista de Alunos</title>
+</head>
+
+<body>
+	<h1>Lista de alunos ativos na aula:</h1>
+	<ul>
+
+		{% for aluno in alunos %}
+      <li>{{ aluno }}</li>
+		{% endfor %}
+
+	</ul>
+</body>
+
+</html>

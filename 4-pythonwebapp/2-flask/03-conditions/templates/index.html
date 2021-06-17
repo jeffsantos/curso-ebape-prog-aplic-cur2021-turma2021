@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Hoje é Natal?</title>
+	<style>
+		body {
+			color: white;
+			text-align: center;
+			background-color: black;
+			font-weight: bold;
+			font-size: 120pt;
+			font-family: Arial, sans-serif;
+			text-decoration: none;
+			cursor: default;
+		}
+	</style>
+
+</head>
+
+<body>
+	
+	{% if is_it_christmas %}
+	   <h1> Sim, é Natal</h1>
+	{% else %}
+	   <h1> Hoje não é Natal</h1>
+	{% endif %}
+
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>My Website</title>
+    </head>
+    <body>        
+        <h1>{% block heading %}{% endblock %}</h1>
+
+        <div class="content">
+        {% block content %}
+        {% endblock %}
+        </div>
+
+				<div class="footer">
+        {% block footer %}
+        {% endblock %}				
+				</div>
+
+				<div class="copyright">
+					by Jefferson Santos
+				</div>
+
+    </body>
+</html>

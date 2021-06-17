@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Home Page
+{% endblock %}
+
+{% block content %}
+
+<form action="{{ url_for('hello') }}" method="POST">
+  <input type="text" placeholder="Entre com seu nome" name="nome">
+
+  <span>Escolha seu bairro:</span>
+  <select name="bairro" id="id_bairro">
+    <option value="Leme">Leme</option>
+    <option value="Copacabana">Copacabana</option>
+    <option value="Tijuca">Tijuca</option>
+    <option value="Centro">Centro</option> 
+  </select>
+
+	<button>Enviar</button>
+</form>
+
+{% endblock %}
