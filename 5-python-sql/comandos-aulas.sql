@@ -47,3 +47,27 @@ SELECT UPPER(origin), UPPER(destination) FROM flights WHERE destination = 'Paris
 SELECT UPPER(origin), UPPER(destination) FROM flights WHERE UPPER(destination) = 'PARIS';
 
 SELECT UPPER(origin), UPPER(destination) FROM flights WHERE LOWER(destination) = 'paris';
+
+--------------------------
+
+SELECT destination, COUNT(destination) FROM flights
+GROUP BY destination
+
+SELECT destination, COUNT(*) FROM flights
+GROUP BY destination
+
+-- Vai dar erro:
+SELECT destination, origin, count(*) FROM flights
+GROUP BY destination 
+
+
+SELECT destination, COUNT(*), SUM(duration) FROM flights
+GROUP BY destination
+
+
+SELECT destination, COUNT(*) FROM flights
+GROUP BY destination
+HAVING COUNT(*) > 1
+
+
+SELECT destination, COUNT(*) FROM flights GROUP BY destination HAVING COUNT(*) > 1
