@@ -2,6 +2,9 @@
 -- Lista Acumulativa de Comandos usados em Aula
 ------------------------------------------------------------------------------
 
+
+CREATE DATABASE flightsdb;
+
 CREATE TABLE flights (
     id SERIAL PRIMARY KEY,
     origin VARCHAR NOT NULL,
@@ -51,23 +54,41 @@ SELECT UPPER(origin), UPPER(destination) FROM flights WHERE LOWER(destination) =
 --------------------------
 
 SELECT destination, COUNT(destination) FROM flights
-GROUP BY destination
+GROUP BY destination;
 
 SELECT destination, COUNT(*) FROM flights
-GROUP BY destination
+GROUP BY destination;
 
--- Vai dar erro:
+-- Vai dar erro (o campo origin aparece no SELECT, mas não no GROUP BY):
 SELECT destination, origin, count(*) FROM flights
-GROUP BY destination 
+GROUP BY destination;
 
 
 SELECT destination, COUNT(*), SUM(duration) FROM flights
-GROUP BY destination
+GROUP BY destination;
 
 
 SELECT destination, COUNT(*) FROM flights
 GROUP BY destination
-HAVING COUNT(*) > 1
+HAVING COUNT(*) > 1;
 
 
-SELECT destination, COUNT(*) FROM flights GROUP BY destination HAVING COUNT(*) > 1
+SELECT destination, COUNT(*) FROM flights GROUP BY destination HAVING COUNT(*) > 1;
+
+--------------------------
+
+UPDATE flights
+  SET duration = 430
+  WHERE origin = 'New York'
+  AND destination = 'London';
+
+DELETE FROM flights WHERE origin = 'New York';
+
+-- Não confundir o DELETE com o DROP
+-- DELETE age sobre os dados
+-- DROP age sobra a estrutura (serve para remover um objeto (uma tabela, o próprio banco de dados)
+-- Exemplo: 
+
+DROP TABLE flights;
+
+DROP DATABASE flightdb; 
