@@ -207,3 +207,87 @@ SELECT f.id_flight, name, f.duration
 FROM flights f
 INNER JOIN locations lo ON f.id_location_orig = lo.id_location
 INNER JOIN locations ld ON f.id_location_dest = ld.id_location;
+
+-- 19/08/2021
+-- Tabela e registros usados no Quiz da aula anterior
+
+CREATE TABLE Persons (
+
+    FirstName VARCHAR NULL,
+    LastName VARCHAR NOT NULL
+);
+
+INSERT INTO Persons (FirstName, LastName) VALUES ('Peter', 'Jackson');
+INSERT INTO Persons (FirstName, LastName) VALUES ('Paul', 'Hansen');
+INSERT INTO Persons (FirstName, LastName) VALUES ('Carl', 'Pettersen');
+INSERT INTO Persons (FirstName, LastName) VALUES ('John', 'Nilsen');
+INSERT INTO Persons (FirstName, LastName) VALUES ('Claudie' , 'Emily');
+INSERT INTO Persons (FirstName, LastName) VALUES ('Cristie' , 'Lafontaine');
+INSERT INTO Persons (FirstName, LastName) VALUES ('Lorenzo' , 'Bromberg');
+INSERT INTO Persons (FirstName, LastName) VALUES ('Melda' , 'Tony');
+INSERT INTO Persons (FirstName, LastName) VALUES ('Margart' , 'Piazza');
+INSERT INTO Persons (FirstName, LastName) VALUES ('Marina' , 'Mang');
+INSERT INTO Persons (FirstName, LastName) VALUES ('Kimberlee' , 'Bias');
+INSERT INTO Persons (FirstName, LastName) VALUES ('Nona' , 'Maddox');
+INSERT INTO Persons (FirstName, LastName) VALUES ('Terresa' , 'Otto');
+INSERT INTO Persons (FirstName, LastName) VALUES ('Omega' , 'Griffis');
+INSERT INTO Persons (FirstName, LastName) VALUES ('Patti' , 'Days');
+INSERT INTO Persons (FirstName, LastName) VALUES ('Loraine' , 'Nisbett');
+INSERT INTO Persons (FirstName, LastName) VALUES ('Robin' , 'Huntoon');
+INSERT INTO Persons (FirstName, LastName) VALUES ('Maryam' , 'Mcelligott');
+INSERT INTO Persons (FirstName, LastName) VALUES ('Cordia' , 'Hornbuckle');
+INSERT INTO Persons (FirstName, LastName) VALUES ('Yan' , 'Peake');
+INSERT INTO Persons (FirstName, LastName) VALUES ('Edwardo' , 'Ellerbee');
+INSERT INTO Persons (FirstName, LastName) VALUES ('Love' , 'Helper');
+INSERT INTO Persons (FirstName, LastName) VALUES ('Marcelina' , 'Besser');
+INSERT INTO Persons (FirstName, LastName) VALUES ('Raleigh' , 'Mickley');
+
+-- OUTROS TIPOS DE JOIN
+
+select p.id_flight, f.duration, p.name from passengers p
+INNER JOIN flights f on f.id_flight = p.id_flight;
+
+select * from passengers where id_flight = 3;
+
+select * from flights;
+
+-- A palavra OUTER é opcional nos comandos abaixo:
+select f.id_flight, p.name from passengers p INNER JOIN flights f on f.id_flight = p.id_flight;
+
+select f.id_flight, p.name from passengers p RIGHT OUTER JOIN flights f on f.id_flight = p.id_flight;
+
+select f.id_flight, p.name from flights f INNER JOIN passengers p on p.id_flight = f.id_flight;
+
+select f.id_flight, p.name from flights f LEFT JOIN passengers p on p.id_flight = f.id_flight;
+
+-- Colocando em ordem a última query acima
+select f.id_flight, p.name from flights f LEFT OUTER JOIN passengers p on p.id_flight = f.id_flight order by f.id_flight;
+
+
+-- Query dentro de query (Nested Queries - Subqueries)
+SELECT id_flight, count(*) FROM passengers
+GROUP BY id_flight
+HAVING COUNT(*) > 1;
+
+SELECT * FROM flights
+WHERE id_flight IN (6, 2, 1);
+
+SELECT f.id_flight, lo.name, ld.name, f.duration
+FROM flights f
+INNER JOIN locations lo ON f.id_location_orig = lo.id_location
+INNER JOIN locations ld ON f.id_location_dest = ld.id_location
+WHERE id_flight IN (6, 2, 1);
+
+SELECT f.id_flight, lo.name, ld.name, f.duration
+FROM flights f
+INNER JOIN locations lo ON f.id_location_orig = lo.id_location
+INNER JOIN locations ld ON f.id_location_dest = ld.id_location
+WHERE id_flight IN (
+
+SELECT id_flight FROM passengers
+GROUP BY id_flight
+HAVING COUNT(*) > 1
+
+);
+
+-- Dúvida da Naerta: https://www.postgresql.org/docs/9.2/ddl-constraints.html
