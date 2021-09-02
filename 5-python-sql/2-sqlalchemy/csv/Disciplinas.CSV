@@ -1,0 +1,11 @@
+id,codigo,disciplina,creditos,carga,ementa
+1,ADM,Introdução à Administração,4,60,O que é adm?
+2,CALC01,Cálculo I,4,60,Como calcular...
+3,COMP,Introdução à Computação,4,60,Como contar...
+4,ECON,Introdução à Economia,4,60,"Compre na baixa, venda na alta"
+5,FCCS,Fundamentos Clássicos das Ciências Sociais,4,60,Apenas fundamentos
+6,GAAL,Geometria Analítica e Álgebra Linear,4,60,Geometria ou álgebra?
+7,HEG01,História Econômica Geral ,4,60,Histórias minimalistas
+8,LABCALC,Laboratório de Cálculo,2,30,Como calcular... (lab)
+9,LABCOMP,Laboratório de Computação,2,30,Como contar... (lab)
+10,LABGAAL,Laboratório de GAAL,2,30,Álgebra ou Geometria?
