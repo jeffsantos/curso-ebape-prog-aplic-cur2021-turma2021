@@ -17,6 +17,6 @@ def import_csv():
     sql = text("INSERT INTO flights (origin, destination, duration) VALUES (:origin, :destination, :duration )")
 
     for origin, destination, duration in reader:
-     connection.execute(sql, {"origin": origin, "destination":destination, "duration": duration})
+        connection.execute(sql, {"origin": origin, "destination":destination, "duration": duration})
 
 import_csv()
