@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+
+{% block titulo %}
+    Reservas
+{% endblock %}
+
+{% block conteudo %}
+    <h3>Reservas</h3>
+
+    <form action="{{ url_for('book') }}" method="POST"> 
+        <select name="id_flight">
+            {% for flight in flights %}
+
+                <option value="{{ flight.id_flight }}"> {{ flight.origin }} to {{ flight.destination }} takes {{ flight.duration }} </option>
+
+            {% endfor %}            
+        </select>
+
+        <input name="name_passenger" placeholder="Entre com o nome do passageiro">
+
+        <button>Reservar</button>
+
+    </form>
+{% endblock %}
+
+
+
